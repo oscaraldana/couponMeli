@@ -24,7 +24,7 @@ public class CouponMeliService {
     RestTemplate restTemplate;
 
     @Bean
-    public RestTemplate rest() {
+    private RestTemplate rest() {
         return new RestTemplate();
     }
 
@@ -50,22 +50,22 @@ public class CouponMeliService {
         }
     }
 
-    public List <ItemDTO> getMeliItems(CouponMeliRequest couponMeliRequest, String url){
+    private List <ItemDTO> getMeliItems(CouponMeliRequest couponMeliRequest, String url){
         try {
-            List<ItemDTO> itemDTOS = new ArrayList<>();
+            List<ItemDTO> itemsDTO = new ArrayList<>();
             for (int i = 0; i < couponMeliRequest.getItemIds().size(); i++){
                 try {
                     ResponseEntity<String> result = restTemplate.getForEntity( url + couponMeliRequest.getItemIds().get(i) , String.class);
                     Gson gson = new Gson();
                     ItemDTO itemDTO = gson.fromJson(result.getBody(), ItemDTO.class);
-                    itemDTOS.add(itemDTO);
+                    itemsDTO.add(itemDTO);
                     
                 } catch (Exception e) {
                     System.out.println("ERROR:: " + e.getMessage());
                     continue;
                 }
             }
-            return itemDTOS;
+            return itemsDTO;
         } catch (Exception e){
             e.printStackTrace();
             return null;
