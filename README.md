@@ -49,4 +49,4 @@ Se utilizó una arquitectura basica enfocada a servicios Rest. El proyecto se de
 ![Image Text](assets/coverage.png)
 
 ## Postman Collection
-Se anexa la colección de postman para pruebas: [here](https://github.com/DiegoAraque1207/coupon_challenge/blob/main/assets/Coupon%20Challenge.postman_collection.json)
+Se anexa la colección de postman para pruebas: [here](https://github.com/oscaraldana/couponMeli/blob/main/assets/melichallenge.postman_collection.json)
