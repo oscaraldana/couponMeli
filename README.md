@@ -6,9 +6,8 @@ Api que obtiene ina lista de posibles productos a ser redimidos por medio de un 
 1. [Requisitos](#requisitos)
 2. [Ejecución](#ejecución)
 3. [Arquitectura](#arquitectura)
-4. [Pruebas](#pruebas)
-5. [Coverage](#coverage)
-6. [Postman Collection](#postman-collection)
+4. [Coverage](#coverage)
+5. [Postman Collection](#postman-collection)
 
 
 
