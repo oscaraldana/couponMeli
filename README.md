@@ -33,13 +33,20 @@ $ .\mvnw.cmd spring-boot:run
 
 
 ## Arquitectura
-Se utilizó una arquitectura basica enfocada a servicios Rest.
+Se utilizó una arquitectura basica enfocada a servicios Rest. El proyecto se desplegó en un repositorio publico proporcionado por Heroku y se puede consumir por medio de la ruta: https://hmelichallenge.herokuapp.com/coupon utilizando una request como el siguiente:
+
+```json
+{
+  "item_ids": ["MCO949183185", "MCO949183186", "MCO949183187", "MCO949183188", "MCO949183184"],
+  "amount": 500000
+}
+```
+
 ![Image Text](assets/Diagrama.png)
-![Image Text](assets/Diagrama%20despliegue.png)
 
 
 ## Coverage
-![Image Text](assets/Coverage.png)
+![Image Text](assets/coverage.png)
 
 ## Postman Collection
 Se anexa la colección de postman para pruebas: [here](https://github.com/DiegoAraque1207/coupon_challenge/blob/main/assets/Coupon%20Challenge.postman_collection.json)

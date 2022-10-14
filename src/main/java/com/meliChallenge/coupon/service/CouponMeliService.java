@@ -4,7 +4,8 @@ import com.google.gson.Gson;
 import com.meliChallenge.coupon.dto.ItemDTO;
 import com.meliChallenge.coupon.model.CouponMeliRequest;
 import com.meliChallenge.coupon.model.CouponMeliResponse;
-import com.meliChallenge.coupon.util.CouponMeliUtil;
+import com.meliChallenge.coupon.model.GetCouponItems;
+import com.meliChallenge.coupon.model.LoadConfigProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
@@ -30,12 +31,12 @@ public class CouponMeliService {
 
     public ResponseEntity calculate(CouponMeliRequest couponMeliRequest){
         try {
-            Properties prop = CouponMeliUtil.getPropertiesFile();
+            Properties prop = LoadConfigProperties.getPropertiesFile();
             String url = prop.getProperty("URL_API_MELI_ITEMS");
             List <ItemDTO> itemDTOS = getMeliItems(couponMeliRequest,url);
             System.out.println(itemDTOS.size());
             if (itemDTOS.size()>0) {
-                CouponMeliResponse response = CouponMeliUtil.validateItems(itemDTOS, couponMeliRequest.getAmount());
+                CouponMeliResponse response = GetCouponItems.validateItems(itemDTOS, couponMeliRequest.getAmount());
                 if (response.getTotal()== (float) 0){
                     return new ResponseEntity<>(HttpStatus.NOT_FOUND.value() + "-" +HttpStatus.NOT_FOUND.getReasonPhrase(), HttpStatus.NOT_FOUND);
                 }else {

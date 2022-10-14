@@ -7,11 +7,8 @@ import java.util.List;
 
 import com.meliChallenge.coupon.controller.CouponMeliController;
 import com.meliChallenge.coupon.dto.ItemDTO;
-import com.meliChallenge.coupon.model.CouponMeli;
-import com.meliChallenge.coupon.model.CouponMeliRequest;
-import com.meliChallenge.coupon.model.CouponMeliResponse;
+import com.meliChallenge.coupon.model.*;
 import com.meliChallenge.coupon.service.CouponMeliService;
-import com.meliChallenge.coupon.util.CouponMeliUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,30 +100,29 @@ public class CouponMeliTest {
 
     @Test
     public void couponUtilCalculateTest(){
-        CouponMeliUtil couponMeliUtil = new CouponMeliUtil();
-        assert (couponMeliUtil instanceof CouponMeliUtil);
+        GetCouponItems couponMeliItems = new GetCouponItems();
+        assert (couponMeliItems instanceof GetCouponItems);
         List<ItemDTO> itemsDTO = new ArrayList<>();
         for(int i = 1; i<=5; i++){
             ItemDTO item = new ItemDTO("MLA-"+i, "Item-"+i, 100000f*i, "active");
             itemsDTO.add(item);
         }
-        CouponMeliResponse response = CouponMeliUtil.validateItems(itemsDTO, 500000f);
+        CouponMeliResponse response = GetCouponItems.validateItems(itemsDTO, 500000f);
         System.out.println(response);
     }
 
     @Test
     public void couponUtilCalculateErrorTest(){
-        CouponMeliUtil couponMeliUtil = new CouponMeliUtil();
-        assert (couponMeliUtil instanceof CouponMeliUtil);
-        List<ItemDTO> itemsDTO = null;
-        CouponMeliUtil.validateItems(itemsDTO, 500000f);
+        GetCouponItems couponMeliItems = new GetCouponItems();
+        assert (couponMeliItems instanceof GetCouponItems);List<ItemDTO> itemsDTO = null;
+        GetCouponItems.validateItems(itemsDTO, 500000f);
     }
 
     @Test
     public void couponUtilPropertiesTest(){
-        CouponMeliUtil couponMeliUtil = new CouponMeliUtil();
-        assert (couponMeliUtil instanceof CouponMeliUtil);
-        CouponMeliUtil.getPropertiesFile();
+        LoadConfigProperties couponMeliUtil = new LoadConfigProperties();
+        assert (couponMeliUtil instanceof LoadConfigProperties);
+        LoadConfigProperties.getPropertiesFile();
     }
 
 }
