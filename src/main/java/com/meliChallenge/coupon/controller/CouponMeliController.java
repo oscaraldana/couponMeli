@@ -5,6 +5,7 @@ import com.meliChallenge.coupon.service.CouponMeliService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,5 +19,11 @@ public class CouponMeliController {
     @ResponseBody
     public ResponseEntity calculate(@RequestBody CouponMeliRequest couponRequest){
         return couponService.calculate(couponRequest);
+    }
+
+    @GetMapping(value = "/")
+    @ResponseBody
+    public String get(){
+        return "echo";
     }
 }
